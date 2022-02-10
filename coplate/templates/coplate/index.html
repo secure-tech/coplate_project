@@ -1,0 +1,17 @@
+<h1>홈페이지</h1>
+
+{% if user.is_authenticated %}
+  <p>안녕하세요
+    {{user}}입니다.</p>
+{% else %}
+  <p>로그아웃된 상태입니다.</p>
+{% endif %}
+
+<navbar>
+  {% if user.is_authenticated %}
+    <a href="{% url 'account_logout' %}">로그아웃</a>
+  {% else %}
+    <a href="{% url 'account_login' %}">로그인</a>
+    <a href="{% url 'account_signup' %}">회원가임</a>
+  {% endif %}
+</navbar>
